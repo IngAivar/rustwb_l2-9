@@ -1,0 +1,559 @@
+<!DOCTYPE html><html lang='ru' ><head>
+	<meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="theme-color" content="#567ca4">
+	<link rel="preload" href="/includes/img/iconsfont/icomoon.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="icon" href="/favicon.svg">
+	<link rel="apple-touch-icon" href="/favicon.svg">
+    <link rel='mask-icon' href='/favicon.svg' color='#567ca4'>
+	<title>Определить цвет пикселя онлайн</title><meta name="description" content="Утилита для определения цвета пикселя на скриншоте или картинке для браузера Chrome. (Инструмент пипетка онлайн)."><link rel='stylesheet' type='text/css' href='/modules/minify/data/bundle.480404451.min.css'>
+<script defer src='/modules/minify/data/bundle.3856100274.min.js'></script>
+<link rel="canonical" href="https://sanstv.ru/color" itemprop="url" /><!-- Yandex.RTB -->
+<script type="application/javascript">window.yaContextCb=window.yaContextCb||[]</script>
+<script src="https://yandex.ru/ads/system/context.js" async></script></head>
+<body class="page-wrap layout vertical" itemscope itemtype='https://schema.org/WebSite'
+    data-base-url="/color"
+    data-isDbg="0"
+>
+    <link itemprop='image' href='/favicon.svg'>
+	<header id="header"><div class="layout-fixed">
+			<a href='/' data-icon='' title='Home'></a><a href='/color' class="active"  aria-label="Определить цвет пикселя онлайн"><span data-icon=""> </span><h1 class="no-phone" >Определить цвет пикселя онлайн</h1></a><span id='colorName'></span><a id="helpButton" href="#help" rel="help" class="active" data-icon="" rel="nofollow" title="О сервисе"></a>		</div></header>
+			<div class="no-phone open layout-fixed" id="help">
+			<div class="help" itemprop='about'>
+<ul style="margin: 0;">
+<li id="showForWebkit" >Нажмите <span id="shortKeyHint"><kbd>Print Screen</kbd>, затем <kbd>Ctrl</kbd> + <kbd>V</kbd></span> что-бы вставить скриншот.</li>
+<li>Или <input style="width: auto;" type="file" id="imageLoader" name="imageLoader"/></li>
+<li>Или перетащите изображение в любую часть страницы</li>
+<li>Это безопасно <span data-icon=""></span>! Файл не будет загружен на сервер.</li>
+</ul></div>
+		</div>
+		    <!-- Yandex.RTB R-A-10536227-1 -->
+    <script>
+    window.yaContextCb.push(() => {
+        Ya.Context.AdvManager.render({
+            "blockId": "R-A-10536227-1",
+        "type": "fullscreen",
+        "platform": "touch"
+        })
+    })
+    </script>	<MAIN class="page layout-fixed " id='content'>
+        <div id='adblock' class='error' style='display: none;'>
+            Уважаемый пользователь, сайт развивается и существует только на доходы от рекламы - пожалуйста, отключите
+            блокировщик рекламы.
+        </div>
+		    <link rel='prefetch' href='/tools/color/color-picker5.png' as='style'/>
+
+    <script type="text/delayscript">if (navigator.platform == 'MacIntel') shortKeyHint.innerHTML='<kbd>⇧</kbd> + <kbd>⌃</kbd> + <kbd>⌘</kbd> + <kbd>3</kbd>, затем <kbd>⌘</kbd> + <kbd>V</kbd>'</script>
+    <style>
+        .layout-fixed {width: 100%;}
+        BODY{
+            /*overflow-x: hidden;*/
+            -moz-user-select: none; /* These user-select properties are inheritable, used to prevent text selection */
+            -webkit-user-select: none;
+            -ms-user-select: none; /* From IE10 only */
+            user-select: none; /* Not valid CSS yet, as of July 2012 */
+
+            -webkit-user-drag: none; /* Prevents dragging of images/divs etc */
+            user-drag: none;
+            cursor: default;
+        }
+        canvas{
+            cursor:crosshair;
+            float:left;
+            /*touch-action: none;*/
+        }
+        INPUT{
+            min-width:100px;
+            box-sizing: border-box;
+        }
+        #colorBox{
+            /*border: 1px solid #B1BDD6;*/
+            /*padding: 14px;*/
+        }
+        .unselectable {
+            /* For Opera and <= IE9, we need to add unselectable="on" attribute onto each element */
+            /* Check this site for more details: http://help.dottoro.com/lhwdpnva.php */
+            -moz-user-select: none; /* These user-select properties are inheritable, used to prevent text selection */
+            -webkit-user-select: none;
+            -ms-user-select: none; /* From IE10 only */
+            user-select: none; /* Not valid CSS yet, as of July 2012 */
+
+            -webkit-user-drag: none; /* Prevents dragging of images/divs etc */
+            user-drag: none;
+        }
+        #showForWebkit0{ display:none}
+        .dragover{
+            outline:5px solid orange;
+            opacity: 0.5;
+        }
+
+        blockquote:before{content:'' !important;}
+
+        /* fixed */
+        .page-wrap {
+            /*height: 100%;*/
+        }
+        /*MAIN {
+            height: 100%;
+            padding-top: 50px;
+        }
+        HEADER, FOOTER {
+            position: fixed;
+        }*/
+
+        .tarnsparent {
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEX////AwMCU81DAAAAAD0lEQVQI12P4z4ALYRUFAH++D/FfvynqAAAAAElFTkSuQmCC);
+        }
+
+        #result{
+            background-repeat: repeat;
+            padding: 10px;
+            /* align-items: center; */
+            /* text-align: center; */
+            box-sizing: border-box;
+            height: 100%;
+            overflow: auto;
+            position: relative;
+        }
+        .collapse{
+            max-width: 100%;
+        }
+        .scroll{
+            /*display: block;
+            margin-top: 5px;*/
+        }
+        .red{
+            background-color: #ff000091;
+            /*background: linear-gradient(90deg, #00000000 0%, #ff0000bf 100%);*/
+        }
+        .green{
+            background-color: #58c02690;
+            /*background: linear-gradient(90deg, #00000000 0%, #58c026bf 100%);*/
+        }
+        .blue{
+            background-color: #0077ff90;
+            /*background: linear-gradient(90deg, #00000000 0%, #0077ffbf 100%);*/
+        }
+        label.tarnsparent{
+
+        }
+
+        label{
+            display: block;
+            line-height: 0;
+        }
+        .combo datalist.open {
+            width: 300px;
+        }
+
+        #websafeExample {
+            position: absolute;
+            right: 0px;
+            width: 20px;
+            height: 20px;
+            margin-right: 4px;
+            box-sizing: border-box;
+        }
+        #recentHead{
+            display: none;
+            animation: highlight .3s ease-in-out;
+        }
+        .recent{
+            overflow: hidden;
+            height: 32px;
+            gap: 3px;
+        }
+        .recent A{
+            display: inline-block;
+            width: 30.5px;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        .zoomButtons{
+            color: darkgray;
+        }
+        .zoomButtons:hover{
+            opacity: 0.8;
+        }
+        .adsbygoogle{
+            max-width: 278px;
+        }
+    </style>
+
+
+    <table class="layout">
+        <tbody><tr>
+            <td width="300px" class="_verticalForm" style="line-height: 200%;">
+                <fieldset class='_inline' style="margin:0;">
+                    <legend>Параметры цвета</legend>
+
+                    <div class="stretch" style="">
+                        <label class="tarnsparent" style="width:100%;"><input type="color" id="colorBox"  ></label>
+                        <label><input value="" name='colorRgb' id='colorRgb' type="search" pattern="rgba?\([\d\s]+,[\d\s]+,[\d\s]+(,[\d.\s]+)?\)"></label>
+                        <label><div style='height: 320px;'><!-- Yandex.RTB R-A-10536227-2 -->
+<div id="yandex_rtb_R-A-10536227-2"></div>
+<script type="text/delayscript">
+window.yaContextCb.push(() => {
+    Ya.Context.AdvManager.render({
+        "blockId": "R-A-10536227-2",
+    "renderTo": "yandex_rtb_R-A-10536227-2"
+    })
+})
+</script></div></label>
+                        <label><input value="#ffffff" name='colorHex' id='colorHex' type="search" pattern="#[0-9abcdef]+"></label>
+
+
+                        <label class="input-append">
+                            <div style="opacity: 0.5; position: absolute;">Websafe:</div>
+                            <input style='padding-left: 80px;' name='colorWebsafe' id='colorWebsafe' type="" pattern="#[0369cf]{3,4}">
+                            <span id="websafeExample"></span>
+                        </label>
+
+                        <label><input value="" name='colorHsl' id='colorHsl' type="search" pattern="hsla?\([\d.\s]+%?,[\d.\s]+%?,[\d.\s]+%?(,[\d.\s]+)?\)"  style="font-size: 90%;"></label>
+                        <label><input value="" name='colorCmyk' id='colorCmyk' type="search" pattern="cmyk\([\d.\s]+%?,[\d.\s]+%?,[\d.\s]+%?,[\d.\s]+%?(,[\d.\s]+)?\)"   style="font-size: 90%;"></label>
+
+                        <label>
+                            <div class="combo">
+                                <input placeholder="Название" load-list="getColorsNames" id='colorNameText' type="" autocomplete="off"><input id='colorNameInput' value='' type="hidden" onchange="onChange(this)">
+                            </div>
+                        </label>
+
+                        <label class="scroll red"><input type="range" max="255" value="255" min="0" step="1" name="red" id="red"></label>
+                        <label class="scroll green"><input type="range" max="255" value="255" min="0" step="1" name="green" id="green"></label>
+                        <label class="scroll blue"><input type="range" max="255" value="255" min="0" step="1" name="blue" id="blue"></label>
+                        <label class="scroll tarnsparent"><input type="range" max="1" value="1" min="0" step="0.01" name="alpha" id="alpha"></label>
+
+                        <div class='layout fixed'>
+                            <a data-icon='' class='zoomButtons' data-multiplier='-0.1'></a>
+                            <input type='range' id='zoom' name='points' value='100' min='100' max='500'
+                                   style='margin-right: 10px;'>
+                            <a data-icon='' class='zoomButtons' data-multiplier='0.1'></a>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <label style="display: none">
+                    <input style="margin-bottom: 5px;" type="checkbox" onchange="$(myCanvas).toggleClass('collapse')	"> Исходный размер
+                </label>
+
+
+                <a id="downloadLnk" class="btn" href="" download="screenshot.jpg" data-icon=" " style="width: 100%; display: none;">Save screenshot</a>
+
+                <div id="recentHead">Выбранные цвета:
+                    <div class="recent stretch" id="recent"></div>
+                </div>
+
+            </td>
+            <td id="result" class="tarnsparent">
+                <canvas id="myCanvas" class="unselectable" width="80" height="60" draggable="false"></canvas>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <script type="text/delayscript">
+        var color = {r: 255, g: 255, b: 255, a: 1};
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+        var result = document.getElementById('result');
+        var mouseDown = false;
+
+
+        zoom.oninput =  function(e){
+            //myCanvas.style.width = zoom.value + 'px';
+            $('#myCanvas').css('width', zoom.value + 'px');
+        };
+        $('.zoomButtons').on('click', function(){
+            zoom.value = parseFloat(zoom.value) + (zoom.max - zoom.min) * $(this).attr('data-multiplier');
+            zoom.oninput();
+        });
+
+        var imageObj = new Image();
+        imageObj.onload = function() {
+            canvas.width = imageObj.width;
+            canvas.height = imageObj.height;
+            ctx.drawImage(imageObj, 0, 0);
+            //drawGrays();
+
+            result = document.getElementById('result');
+            zoom.value = zoom.min = Math.min(myCanvas.width, result.clientWidth - 20);
+            zoom.max = Math.max(myCanvas.width*2, result.clientWidth);
+            zoom.oninput();
+        };
+        imageObj.src = '/tools/color/color-picker5.png';
+
+
+        var zoomBox = new ZoomBox(canvas);
+
+        //if (/WebKit/.test(navigator.userAgent)) document.getElementById('showForWebkit').style.display = 'inline';
+
+
+        function drawGrays(){
+            var left = canvas.width - 50;
+            ctx.lineWidth = 1;
+            ctx.globalAlpha=1;
+            //ctx.imageSmoothingEnabled= false;
+
+            for (var i=0; i<256; i++){
+                ctx.beginPath();
+                ctx.fillStyle = ctx.strokeStyle = `rgb(${i},${i},${i})`;
+                ctx.moveTo(left + 0.5, 255-i + 0.5);
+                ctx.lineTo(left + 50 + 0.5, 255-i + 0.5);
+                ctx.stroke();
+            }
+        }
+
+        $$('#downloadLnk')[0].addEventListener('click', function(){
+            var dt = canvas.toDataURL('image/jpeg');
+            this.href = dt;
+        }, false);
+
+        function copy(){
+            try {
+                if (document.execCommand('copy')) snackbar('Код скопирован в буфер обмена', 3);
+            } catch (e) {
+                // do nothing
+            }
+        }
+
+        function getMousePos(e) { //d({layerX: e.layerX,  layerY: e.layerY,  offsetX: e.offsetX,  offsetY: e.offsetY})
+            var pos = e.touches ? e.touches[0] : e;
+
+            var x = 0, y = 0
+            if (typeof pos.offsetX === 'undefined') {
+                var offset = $(e.target).offset();
+                x = pos.pageX - offset.left;
+                y = pos.pageY - offset.top;
+            } else {
+                x = pos.offsetX;
+                y = pos.offsetY;
+            }
+
+            return {
+                x: Math.round(e.target.width  / e.target.scrollWidth  * x),
+                y: Math.round(e.target.height / e.target.scrollHeight * y),
+            }
+        }
+
+        canvas.addEventListener('mousedown', onMouseDown, false);
+        canvas.addEventListener('mouseup', onMouseUp, false);
+        canvas.addEventListener('mousemove', onMouseMove, false);
+        canvas.addEventListener('touchstart', onMouseDown, false);
+        canvas.addEventListener('touchend', onMouseUp, false);
+        canvas.addEventListener('touchmove', onMouseMove, false);
+
+        function onMouseDown(e) {
+            mouseDown = true;
+            onMouseMove(e);
+
+            $(recentHead).show();
+            $(recent).prepend(`<a style="background-color: ${colorRgb.value};"></a>`);
+            //recent.childNodes.forEach(function(v,k){ if (k >= 7) v.remove() });
+        }
+        function onMouseUp(e) {
+            mouseDown = false;
+        }
+        function onMouseMove(e) {
+            if (!mouseDown) return;
+
+            var mousePos = getMousePos(e);
+            var pixel;
+            try {
+                pixel = ctx.getImageData(mousePos.x, mousePos.y, 1, 1).data;
+            } catch (e) {
+                pixel = [0,0,0,0];
+            }
+            colorRgb.value = Color.colorToRgb({r: pixel[0], g:pixel[1], b:pixel[2], a: Math.round(pixel[3]/255*100)/100});
+            onChange(colorRgb);
+        }
+
+        function onChange(t, p){
+            p = p || {};
+
+            if (t.id == 'red') color.r = parseInt(t.value);
+            if (t.id == 'green') color.g = parseInt(t.value);
+            if (t.id == 'blue') color.b = parseInt(t.value);
+            if (t.id == 'alpha') color.a = parseFloat(t.value);
+            if (t.id == 'colorRgb') color = Color.rgbToColor(t.value);
+            if (t.id == 'colorHex' ) color = Color.hexToColor(t.value);
+            if (t.id == 'colorBox') color = Color.hexToColor(t.value);
+            if (t.id == 'colorNameInput' ) color = Color.hexToColor(t.value);
+            if (t.id == 'colorHsl') color = Color.hslToColor(t.value);
+            if (t.id == 'colorCmyk') color = Color.cmykToColor(t.value);
+            if (t.id == 'colorWebsafe') color = Color.hexToColor(t.value);
+
+
+            if (t.id != 'red') red.value = color.r;
+            if (t.id != 'green') green.value = color.g;
+            if (t.id != 'blue') blue.value = color.b;
+            if (t.id != 'alpha') alpha.value = color.a;
+            if (t.id != 'colorRgb') colorRgb.value = Color.colorToRgb(color);
+            if (t.id != 'colorHex')  colorHex.value = Color.colorToHex(color);
+            if (t.id != 'colorHsl')  colorHsl.value = Color.colorToHsl(color);
+            if (t.id != 'colorCmyk')  colorCmyk.value = Color.colorToCmyk(color);
+            if (t.id != 'colorBox') colorBox.value = colorHex.value.substr(0,7);
+            if (t.id != 'colorWebsafe') colorWebsafe.value = Color.colorToWebsafe(color);
+            $('#colorBox').css('background-color', colorRgb.value);
+            $(websafeExample).css('background-color', colorWebsafe.value);
+
+            drawFavicon(colorHex.value);
+            if (t.id != 'colorNameText') colorNameText.value = colorName.innerHTML = document.title = getSimilarColor(colorHex.value)[0];
+
+            if (!p.noChangeLocation) {
+                delay(function(){
+                    if (window.history && history.replaceState) history.replaceState(undefined, undefined, Color.colorToHex(color));
+                });
+            }
+
+            //Utils.copyToClipboard(colorHex.value);
+        }
+
+        function drawFavicon(hexColor) {
+            var canvas = document.createElement("canvas");
+            canvas.width = 16;
+            canvas.height = 16;
+
+            if (canvas.getContext) {
+                var context = canvas.getContext('2d');
+
+                context.fillStyle = hexColor;
+
+                var roundedPixels = 4;
+
+                context.beginPath();
+                context.moveTo(0, roundedPixels);
+
+                context.quadraticCurveTo(0, 0, roundedPixels, 0);
+                context.lineTo(canvas.width - roundedPixels, 0);
+
+                context.quadraticCurveTo(canvas.width, 0, canvas.width, roundedPixels);
+                context.lineTo(canvas.width, canvas.height - roundedPixels);
+
+                context.quadraticCurveTo(canvas.width, canvas.height, canvas.width - roundedPixels, canvas.height);
+                context.lineTo(roundedPixels, canvas.height);
+
+                context.quadraticCurveTo(0, canvas.height, 0, canvas.height - roundedPixels);
+                context.lineTo(0, roundedPixels);
+
+                context.fill();
+
+                if (canvas.toDataURL) {
+                    try {
+                        var dataURL = canvas.toDataURL("image/png");
+                        $('HEAD').children("link[rel*=icon]").remove();
+                        $("<link/>").attr({
+                            rel: "shortcut icon",
+                            type: "image/png",
+                            href: dataURL
+                        }).appendTo('HEAD');
+                    } catch (e) {
+                        // do nothing
+                    }
+                }
+            }
+        }
+
+        function getColorsNames(value){
+            return new Promise(function (resolve, reject) {
+                var res = [];
+                var val = value.value.toLowerCase();
+                for (var i=0; i<colorNames.length; i++){
+                    if ((colorNames[i][0]+colorNames[i][1]).toLowerCase().indexOf(val) !== -1) {
+                        res.push([
+                            `<span style='background-color: ${colorNames[i][2]}'>&nbsp;&nbsp;&nbsp;&nbsp;</span> ${colorNames[i][1]}`,
+                            colorNames[i][2],
+                        ]);
+                        if (res.length > 50) break;
+                    }
+                }
+
+                resolve(res);
+            });
+        }
+
+        function pad(num, size) {
+            var s = num+"";
+            while (s.length < size) s = "0" + s;
+            return s;
+        }
+
+        // increase/decrease on key up/down
+        window.addEventListener("keydown", function(e){ //d(e)
+            if (e.target.tagName !== 'INPUT') return;
+            if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') return;
+            if (e.target.selectionStart === null) return;
+
+            var pos = e.target.selectionStart;
+            var r = e.target.value.matchAt('[\\d.-]+', pos);
+            if (r) {
+                var old = parseFloat(r[0]);
+                var inc = e.key === 'ArrowUp' ? 1 : -1;
+                if (old > 0 && old < 1) inc /= 100;
+                var newValue = old + inc;
+                newValue = Math.round(newValue*100)/100;
+
+                e.target.value = e.target.value.replaceAt(r.index, r[0].length, newValue);
+                e.target.dispatchEvent(new Event('change', { 'bubbles': true }));
+                e.target.selectionEnd = e.target.selectionStart = pos;
+            }
+            e.preventDefault();
+        });
+
+        // load
+        colorHex.value = location.hash || '#ffffff';
+        onChange(colorHex, {noChangeLocation: true});
+
+        $(document).on('input change', 'INPUT', function(e){ onChange(e.target) });
+        $(document).on('focus', 'INPUT', function(e){
+            e.target.select();
+            //copy();
+        });
+
+        $(document).on('click', '.recent A', function(e){
+            colorRgb.value = e.target.style.backgroundColor;
+            onChange(colorRgb);
+        });
+
+        // load file
+        var fileLoader = new FileLoader({fileElement: imageLoader});
+        fileLoader.onLoadFiles = function(files){
+            if (typeof FileReader !== "function") {
+                return snackbar('Ваш браузер не поддерживает загрузку файлов');
+            }
+
+            if (!(files[0].constructor.name == 'Blob' || files[0].constructor.name == 'File')) {
+                return snackbar('Не поддерживаемый тип файла: '+files[0].constructor.name);
+            }
+
+            var reader = new FileReader();
+            reader.onload = function(event){
+                imageObj.src = event.target.result;
+            };
+            reader.readAsDataURL(files[0]);
+        }
+    </script>
+
+	</MAIN>
+		<footer id='footer'>
+		<div class="layout-fixed">
+			<!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(10847695, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/10847695" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter --><a href="/license">© 2024</a><small id='footerInfo' style='width: 70px;'></small>
+<a rel='nofollow' onclick='return VkComments.onCommentButton(this);' href='/color/show-comments' data-icon=' ' data-page='/color' data-app-id='2808957' >
+	<span class='no-phone'>Комментарии</span> <e id='commentsCount' class='badge odometer' style=''>202</e>
+</a>
+<span data-icon=' '  style='display: none;' title='Пользователей online'><e id='onlineUsersCounter' class='badge odometer'></e></span>			<script type="application/ld+json">
+			{
+				"@context": "http://schema.org",
+				"@type": "BreadcrumbList",
+				"itemListElement":
+				[
+					{"@type": "ListItem","position": 1,"item": {"@id": "/color","name": "Определить цвет пикселя онлайн"}}				]
+			}
+		    </script>
+		</div>
+	</footer>
+</body></html>
